@@ -1,20 +1,15 @@
 {
   "schemaVersion": 1,
-  "name": "Meteor Client",
+  "name": "Гlient",
   "id": "meteor-client",
   "version": "${version}",
-  "description": "Based utility mod.",
+  "description": "только сигмы знают",
   "authors": [
+    "baka2sigma",
     "MineGame159",
     "squidoodly",
     "seasnail"
   ],
-  "contact": {
-    "homepage": "https://meteorclient.com",
-    "issues": "https://github.com/MeteorDevelopment/meteor-client/issues",
-    "sources": "https://github.com/MeteorDevelopment/meteor-client",
-    "discord": "https://meteorclient.com/discord"
-  },
   "license": "GPL-3.0",
   "icon": "assets/meteor-client/icon.png",
   "environment": "client",
@@ -37,13 +32,9 @@
   "accessWidener": "meteor-client.classtweaker",
   "custom": {
     "meteor-client:build_number": "${build_number}",
-    "meteor-client:color": "145,61,226",
+    "meteor-client:color": "255,180,35",
     "meteor-client:commit": "${commit}",
-    "modmenu": {
-      "links": {
-        "modmenu.discord": "https://meteorclient.com/discord"
-      }
-    },
+    "modmenu": {},
     "badoptimizations:cache_hooks": {
       "lightmap": "meteordevelopment.meteorclient.modintegration.BadOptimizationsHook"
     }
