@@ -32,8 +32,7 @@ import meteordevelopment.meteorclient.systems.accounts.Account;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.render.color.Color;
 import meteordevelopment.meteorclient.utils.render.color.SettingColor;
-import net.minecraft.client.resources.language.I18n;
-import net.minecraft.network.chat.Component;
+
 
 import static meteordevelopment.meteorclient.MeteorClient.mc;
 

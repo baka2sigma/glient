@@ -12,6 +12,7 @@ import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.System;
 import meteordevelopment.meteorclient.systems.Systems;
 import meteordevelopment.meteorclient.systems.modules.Module;
+import meteordevelopment.meteorclient.systems.modules.Modules;
 import meteordevelopment.meteorclient.utils.render.color.SettingColor;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -132,10 +133,29 @@ public class Config extends System<Config> {
     );
 
     // Modules
-
+    ArrayList<String> autoHiddenModules = new ArrayList<>(List.of(
+        "Auto-Anvil",
+        "Anti-Anvil",
+        "Auto-Exp",
+        "Auto-Web",
+        "Bed-Aura",
+        "Anti-Bed",
+        "Self-Trap",
+        "Surround",
+        "Exp-Thrower", // если чесно я НИХУЯ ек знаю че это делает кто-то подскажи пж
+        "Auto-Wasp",
+        "Auto-Breed",
+        "Auto-Mount",
+        "Auto-Nametag",
+        "Auto-Shearer",
+        "Notebot",
+        "Speed-Mine",// это просто не работает лол
+        "Crystal-Aura"
+    ));
     public final Setting<List<Module>> hiddenModules = sgModules.add(new ModuleListSetting.Builder()
         .name("hidden-modules")
         .description("Prevent these modules from being rendered as options in the clickgui.")
+        .defaultValue(List.of())
         .build()
     );
 
