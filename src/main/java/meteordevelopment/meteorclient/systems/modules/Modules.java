@@ -391,34 +391,27 @@ public class Modules extends System<Modules> {
     }
 
     private void initCombat() {
-        add(new AnchorAura());
         add(new AntiAnvil());
         add(new AntiBed());
         add(new ArrowDodge());
         add(new AttributeSwap());
         add(new AutoAnvil());
         add(new AutoArmor());
-        add(new AutoCity());
         add(new AutoEXP());
         add(new AutoLog());
         add(new AutoTotem());
-        add(new AutoTrap());
         add(new AutoWeapon());
         add(new AutoWeb());
         add(new BedAura());
         add(new BowAimbot());
         add(new BowSpam());
-        add(new Burrow());
         add(new Criticals());
         add(new CrystalAura());
         add(new Hitboxes());
         add(new HoleFiller());
         add(new KillAura());
         add(new Offhand());
-        add(new Quiver());
-        add(new SelfAnvil());
         add(new SelfTrap());
-        add(new SelfWeb());
         add(new Surround());
     }
 
@@ -501,14 +494,12 @@ public class Modules extends System<Modules> {
         add(new BreakIndicators());
         add(new CameraTweaks());
         add(new Chams());
-        add(new CityESP());
         add(new EntityOwner());
         add(new ESP());
         add(new Freecam());
         add(new FreeLook());
         add(new Fullbright());
         add(new HandView());
-        add(new HoleESP());
         add(new ItemPhysics());
         add(new ItemHighlight());
         add(new LightOverlay());
@@ -538,11 +529,9 @@ public class Modules extends System<Modules> {
         add(new AutoMount());
         add(new AutoNametag());
         add(new AutoShearer());
-        add(new AutoSign());
         add(new AutoSmelter());
         add(new BuildHeight());
         add(new Collisions());
-        add(new EChestFarmer());
         add(new EndermanLook());
         add(new Flamethrower());
         add(new HighwayBuilder());

@@ -13,7 +13,6 @@ import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Categories;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Modules;
-import meteordevelopment.meteorclient.systems.modules.combat.AnchorAura;
 import meteordevelopment.meteorclient.systems.modules.combat.BedAura;
 import meteordevelopment.meteorclient.systems.modules.combat.CrystalAura;
 import meteordevelopment.meteorclient.systems.modules.combat.KillAura;
@@ -33,7 +32,7 @@ import java.util.function.BiPredicate;
 
 public class AutoEat extends Module {
     @SuppressWarnings("unchecked")
-    private static final Class<? extends Module>[] AURAS = new Class[]{KillAura.class, CrystalAura.class, AnchorAura.class, BedAura.class};
+    private static final Class<? extends Module>[] AURAS = new Class[]{KillAura.class, CrystalAura.class, BedAura.class};
 
     // Settings groups
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
@@ -55,7 +54,7 @@ public class AutoEat extends Module {
             Items.SUSPICIOUS_STEW
         )
         .filter(Utils::isFood)
-        .bypassFilterWhenSavingAndLoading()                                                       
+        .bypassFilterWhenSavingAndLoading()
         .build()
     );
 
