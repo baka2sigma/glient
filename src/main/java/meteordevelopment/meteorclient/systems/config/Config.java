@@ -5,6 +5,7 @@
 
 package meteordevelopment.meteorclient.systems.config;
 
+import com.terraformersmc.modmenu.util.mod.Mod;
 import meteordevelopment.meteorclient.MeteorClient;
 import meteordevelopment.meteorclient.renderer.Fonts;
 import meteordevelopment.meteorclient.renderer.text.FontFace;
@@ -21,6 +22,7 @@ import net.minecraft.nbt.Tag;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static meteordevelopment.meteorclient.MeteorClient.mc;
 
@@ -150,12 +152,45 @@ public class Config extends System<Config> {
         "Auto-Shearer",
         "Notebot",
         "Speed-Mine",// это просто не работает лол
-        "Crystal-Aura"
+        "Crystal-Aura",
+        "Anti-Hunger",
+        "Fake-Player",
+        "Instant-Rebreak",
+        "Name-Protect",
+        "No-Interact",
+        "No-Rotate",
+        "Rotation",
+        "Anchor",
+        "Breadcrumbs",
+        "Hand-View",
+        "Light-Overlay",
+        "Marker",
+        "Pop-Chams",
+        "Trail",
+        "Tunnel-Esp",
+        "Void-Esp",
+        "Wall-Hack",
+        "Zoom",
+        "Collisions",
+        "Flamethrower",
+        "Highway-Builder",
+        "Waypoints",
+        "Hole-Filler",
+        "Liquid-Filler",
+        "No-Ghost-Blocks",
+        "Nuker",
+        "Spawn-Proofer",
+        "Vein-Miner",
+        "Better-Beacons",
+        "Book-Bot"
     ));
     public final Setting<List<Module>> hiddenModules = sgModules.add(new ModuleListSetting.Builder()
         .name("hidden-modules")
         .description("Prevent these modules from being rendered as options in the clickgui.")
-        .defaultValue(List.of())
+        .defaultValue(autoHiddenModules.stream()
+            .map(module -> Modules.get().get(module))
+            .toList()
+        )
         .build()
     );
 
