@@ -5,6 +5,7 @@
 
 package meteordevelopment.meteorclient.gui.themes.meteor;
 
+import com.mojang.authlib.minecraft.client.MinecraftClient;
 import com.mojang.blaze3d.platform.MacosUtil;
 import meteordevelopment.meteorclient.gui.DefaultSettingsWidgetFactory;
 import meteordevelopment.meteorclient.gui.GuiTheme;
@@ -31,6 +32,7 @@ import meteordevelopment.meteorclient.systems.accounts.Account;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.render.color.Color;
 import meteordevelopment.meteorclient.utils.render.color.SettingColor;
+import net.minecraft.client.resources.language.I18n;
 
 import static meteordevelopment.meteorclient.MeteorClient.mc;
 
@@ -49,7 +51,7 @@ public class MeteorGuiTheme extends GuiTheme {
 
     public final Setting<Double> scale = sgGeneral.add(new DoubleSetting.Builder()
         .name("scale")
-        .description("Scale of the GUI.")
+        .description(I18n.get("key.meteor-client.gui.themes.meteor.scale"))
         .defaultValue(1)
         .min(0.75)
         .sliderRange(0.75, 4)
@@ -166,7 +168,7 @@ public class MeteorGuiTheme extends GuiTheme {
     private final Setting<SettingColor> starscriptAccessedObjects = color(sgStarscript, "starscript-accessed-objects", "Color of accessed objects (before a dot) in Starscript code.", new SettingColor(152, 118, 170));
 
     public MeteorGuiTheme() {
-        super("Meteor");
+        super("Гlient");
 
         settingsFactory = new DefaultSettingsWidgetFactory(this);
     }
