@@ -51,7 +51,7 @@ public class MeteorGuiTheme extends GuiTheme {
 
     public final Setting<Double> scale = sgGeneral.add(new DoubleSetting.Builder()
         .name("scale")
-        .description(I18n.get("key.meteor-client.gui.themes.meteor.scale"))
+        .description("Scale or sum")
         .defaultValue(1)
         .min(0.75)
         .sliderRange(0.75, 4)
@@ -168,7 +168,7 @@ public class MeteorGuiTheme extends GuiTheme {
     private final Setting<SettingColor> starscriptAccessedObjects = color(sgStarscript, "starscript-accessed-objects", "Color of accessed objects (before a dot) in Starscript code.", new SettingColor(152, 118, 170));
 
     public MeteorGuiTheme() {
-        super("Гlient");
+        super("Meteor");
 
         settingsFactory = new DefaultSettingsWidgetFactory(this);
     }

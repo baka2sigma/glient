@@ -1,6 +1,5 @@
 {
   "key.meteor-client.open-gui": "Открыть интерфейс",
   "key.meteor-client.open-commands": "Открыть комманды",
-  "key.category.meteor-client.meteor-client": "Гlient",
-  "key.meteor-client.gui.themes.meteor.scale": "тест"
+  "key.category.meteor-client.meteor-client": "Гlient"
 }
