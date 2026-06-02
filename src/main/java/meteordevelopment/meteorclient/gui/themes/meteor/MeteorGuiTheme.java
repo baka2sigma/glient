@@ -32,8 +32,6 @@ import meteordevelopment.meteorclient.systems.accounts.Account;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.render.color.Color;
 import meteordevelopment.meteorclient.utils.render.color.SettingColor;
-import net.minecraft.client.resources.language.I18n;
-import net.minecraft.network.chat.Component;
 
 import static meteordevelopment.meteorclient.MeteorClient.mc;
 
@@ -52,7 +50,7 @@ public class MeteorGuiTheme extends GuiTheme {
 
     public final Setting<Double> scale = sgGeneral.add(new DoubleSetting.Builder()
         .name("scale")
-        .description("Scale or sum")
+        .description("scale but like i swear bro i need to figure out this locale shit")
         .defaultValue(1)
         .min(0.75)
         .sliderRange(0.75, 4)
