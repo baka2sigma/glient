@@ -38,6 +38,12 @@ public class Chams extends Module {
         .build()
     );
 
+    public final Setting<String> customImgPath = sgThroughWalls.add(new FilePathSetting.Builder()
+        .name("custom-image-path")
+        .description("The image to use for the shader.")
+        .build()
+    );
+
     public final Setting<SettingColor> shaderColor = sgThroughWalls.add(new ColorSetting.Builder()
         .name("color")
         .description("The color that the shader is drawn with.")
