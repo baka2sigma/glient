@@ -40,7 +40,11 @@ public abstract class SplashManagerMixin {
     private static List<String> getMeteorSplashes() {
         return List.of(
             "§eИ всем привет!",
-            "§mMineGame159§r §6baka2sigma §eis a TUFF §lGOD"
+            "§mMineGame159§r §6baka2sigma §eis a TUFF §lGOD",
+            "§ehahndol 67 saeki naa",
+            "§ea a a shapooply",
+            "§emy name es lee. and erm. i love poop. therse es a poop mod.",
+            "§erichie is §lHIM FRFR"
         );
     }
 
