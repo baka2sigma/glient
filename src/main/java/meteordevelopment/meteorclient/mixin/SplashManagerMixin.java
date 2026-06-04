@@ -42,7 +42,8 @@ public abstract class SplashManagerMixin {
             "§eИ всем привет!",
             "§mMineGame159§r §6baka2sigma §eis a TUFF §lGOD",
             "§erichie IS §lHIM FRFR",
-            "§e67 hahndol saeki naaaaaa"
+            "§e67 hahndol saeki naaaaaa",
+            "§eshapoooooooply is a big poop guy"
         );
     }
 
