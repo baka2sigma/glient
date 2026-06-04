@@ -9,6 +9,7 @@ import meteordevelopment.meteorclient.gui.renderer.GuiRenderer;
 import meteordevelopment.meteorclient.gui.utils.Cell;
 import meteordevelopment.meteorclient.gui.utils.WindowConfig;
 import meteordevelopment.meteorclient.gui.widgets.WWidget;
+import meteordevelopment.meteorclient.gui.widgets.pressable.WClose;
 import meteordevelopment.meteorclient.gui.widgets.pressable.WTriangle;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.util.Mth;
@@ -139,6 +140,7 @@ public abstract class WWindow extends WVerticalList {
     protected abstract class WHeader extends WContainer {
         private final WWidget icon;
         private WTriangle triangle;
+        private WClose close;
         private WHorizontalList list;
 
         public WHeader(WWidget icon) {
@@ -159,8 +161,11 @@ public abstract class WWindow extends WVerticalList {
 
             add(theme.label(title, true)).expandCellX().center().pad(4);
 
-            triangle = add(theme.triangle()).pad(4).right().centerY().widget();
+            triangle = add(theme.triangle()).pad(4).centerRight().centerY().widget();
             triangle.action = () -> setExpanded(!expanded);
+
+            close = add(theme.close()).pad(4).right().centerY().widget();
+            close.action = () -> setExpanded(!expanded);
         }
 
         private void createList() {

@@ -258,6 +258,10 @@ public class MeteorGuiTheme extends GuiTheme {
         return w(new WMeteorTriangle());
     }
 
+    public WClose close() {
+        return w(new WGlientClose());
+    }
+
     @Override
     public WTooltip tooltip(String text) {
         return w(new WMeteorTooltip(text));
