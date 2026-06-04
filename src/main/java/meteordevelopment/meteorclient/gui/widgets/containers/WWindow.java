@@ -5,12 +5,14 @@
 
 package meteordevelopment.meteorclient.gui.widgets.containers;
 
+import meteordevelopment.meteorclient.MeteorClient;
 import meteordevelopment.meteorclient.gui.renderer.GuiRenderer;
 import meteordevelopment.meteorclient.gui.utils.Cell;
 import meteordevelopment.meteorclient.gui.utils.WindowConfig;
 import meteordevelopment.meteorclient.gui.widgets.WWidget;
 import meteordevelopment.meteorclient.gui.widgets.pressable.WClose;
 import meteordevelopment.meteorclient.gui.widgets.pressable.WTriangle;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.util.Mth;
 
@@ -80,6 +82,11 @@ public abstract class WWindow extends WVerticalList {
             WindowConfig config = theme.getWindowConfig(id);
             config.expanded = expanded;
         }
+    }
+
+    public void mcCloseGUI() {
+        Minecraft mc = Minecraft.getInstance();
+        mc.screen.onClose();
     }
 
     @Override
@@ -165,7 +172,7 @@ public abstract class WWindow extends WVerticalList {
             triangle.action = () -> setExpanded(!expanded);
 
             close = add(theme.close()).pad(4).right().centerY().widget();
-            close.action = () -> setExpanded(!expanded);
+            close.action = () -> mcCloseGUI();
         }
 
         private void createList() {
