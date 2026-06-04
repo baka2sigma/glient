@@ -6,5 +6,5 @@
 package meteordevelopment.meteorclient.gui.utils;
 
 public enum AlignmentX {
-    Left, Center, Right
+    Left, Center, Right, CenterRight
 }

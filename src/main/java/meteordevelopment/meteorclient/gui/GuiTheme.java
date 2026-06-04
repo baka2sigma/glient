@@ -148,6 +148,7 @@ public abstract class GuiTheme implements ISerializable<GuiTheme> {
     }
 
     public abstract WTriangle triangle();
+    public abstract WClose close();
 
     public abstract WTooltip tooltip(String text);
 

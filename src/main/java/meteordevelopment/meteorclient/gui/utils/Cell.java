@@ -59,6 +59,11 @@ public class Cell<T extends WWidget> {
         return this;
     }
 
+    public Cell<T> centerRight() {
+        alignX = AlignmentX.CenterRight;
+        return this;
+    }
+
     public Cell<T> left() {
         alignX = AlignmentX.Left;
         return this;
@@ -177,6 +182,7 @@ public class Cell<T extends WWidget> {
                 case Left -> widget.x = x;
                 case Center -> widget.x = x + width / 2 - widget.width / 2;
                 case Right -> widget.x = x + width - widget.width;
+                case CenterRight ->  widget.x = ((x + width)- widget.width * 2) - 2;
             }
         }
 
