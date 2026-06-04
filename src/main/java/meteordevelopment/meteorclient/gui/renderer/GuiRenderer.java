@@ -43,6 +43,8 @@ public class GuiRenderer {
     public static GuiTexture FAVORITE_NO, FAVORITE_YES;
     public static GuiTexture COPY, PASTE;
 
+    public static GuiTexture MINIMIZE, MAXIMIZE, CLOSE; // glient addon 67 sigma feature
+
     public GuiTheme theme;
 
     private final Renderer2D r = new Renderer2D(false);
@@ -77,6 +79,10 @@ public class GuiRenderer {
 
         COPY = addTexture(MeteorClient.identifier("textures/icons/gui/copy.png"));
         PASTE = addTexture(MeteorClient.identifier("textures/icons/gui/paste.png"));
+
+        MINIMIZE = addTexture(MeteorClient.identifier("textures/icons/gui/minimize.png"));
+        MAXIMIZE = addTexture(MeteorClient.identifier("textures/icons/gui/maximize.png"));
+        CLOSE = addTexture(MeteorClient.identifier("textures/icons/gui/close.png"));
 
         TEXTURE = TEXTURE_PACKER.pack();
     }
