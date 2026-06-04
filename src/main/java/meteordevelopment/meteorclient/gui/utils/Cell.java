@@ -59,6 +59,11 @@ public class Cell<T extends WWidget> {
         return this;
     }
 
+    public Cell<T> left() {
+        alignX = AlignmentX.Left;
+        return this;
+    }
+
     public Cell<T> centerY() {
         alignY = AlignmentY.Center;
         return this;
