@@ -236,10 +236,10 @@ public abstract class WWindow extends WVerticalList {
 
         @Override
         public boolean render(GuiRenderer renderer, double mouseX, double mouseY, double delta) {
-            animProgress += (expanded ? 1 : -1) * delta * 14;
+            animProgress += (expanded ? 1 : -1);
             animProgress = Mth.clamp(animProgress, 0, 1);
 
-            triangle.rotation = (1 - animProgress) * -90;
+            triangle.texture = (animProgress == 1) ? GuiRenderer.MINIMIZE : GuiRenderer.MAXIMIZE;
 
             return super.render(renderer, mouseX, mouseY, delta);
         }

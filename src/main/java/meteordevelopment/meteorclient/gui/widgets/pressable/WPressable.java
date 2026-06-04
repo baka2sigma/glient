@@ -5,6 +5,7 @@
 
 package meteordevelopment.meteorclient.gui.widgets.pressable;
 
+import meteordevelopment.meteorclient.gui.renderer.packer.GuiTexture;
 import meteordevelopment.meteorclient.gui.widgets.WWidget;
 import net.minecraft.client.input.MouseButtonEvent;
 
@@ -15,6 +16,8 @@ public abstract class WPressable extends WWidget {
     public Runnable action;
 
     protected boolean pressed;
+
+    public GuiTexture texture;
 
     @Override
     public boolean onMouseClicked(MouseButtonEvent click, boolean doubled) {
