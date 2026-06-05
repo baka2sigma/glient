@@ -20,7 +20,7 @@ public class Main {
 
         int option = JOptionPane.showOptionDialog(
             null,
-            "To install Гlient you need to put it in your mods folder and run Fabric for latest Minecraft version.",
+            "To install Гlient you need to put it in your mods folder and run Fabric for the latest Minecraft version.",
             "Гlient",
             JOptionPane.YES_NO_OPTION,
             JOptionPane.ERROR_MESSAGE,
