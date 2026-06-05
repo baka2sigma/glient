@@ -10,12 +10,16 @@ import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Categories;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.entity.DamageUtils;
+import meteordevelopment.meteorclient.utils.player.ChatUtils;
 import meteordevelopment.meteorclient.utils.player.InvUtils;
 import meteordevelopment.orbit.EventHandler;
+import net.minecraft.network.chat.Component;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.MaceItem;
 
 public class AutoWeapon extends Module {
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
@@ -34,6 +38,13 @@ public class AutoWeapon extends Module {
         .build()
     );
 
+    private final Setting<Boolean> favorMace = sgGeneral.add(new BoolSetting.Builder()
+        .name("favor-mace")
+        .description("Always favor a held mace over Auto Weapon's selection.")
+        .defaultValue(false)
+        .build()
+    );
+
     private final Setting<Boolean> antiBreak = sgGeneral.add(new BoolSetting.Builder()
         .name("anti-break")
         .description("Prevents you from breaking your weapon.")
@@ -47,7 +58,8 @@ public class AutoWeapon extends Module {
 
     @EventHandler
     private void onAttack(AttackEntityEvent event) {
-        if (event.entity instanceof LivingEntity livingEntity) {
+        boolean favMaceActive = favorMace.get() && mc.player.getMainHandItem().getItem() instanceof MaceItem;
+        if (event.entity instanceof LivingEntity livingEntity && !favMaceActive) {
             InvUtils.swap(getBestWeapon(livingEntity), false);
         }
     }
