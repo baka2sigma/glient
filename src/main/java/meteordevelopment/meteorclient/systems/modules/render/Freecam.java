@@ -6,6 +6,7 @@
 package meteordevelopment.meteorclient.systems.modules.render;
 
 
+import com.mojang.authlib.minecraft.client.MinecraftClient;
 import meteordevelopment.meteorclient.events.game.GameLeftEvent;
 import meteordevelopment.meteorclient.events.game.OpenScreenEvent;
 import meteordevelopment.meteorclient.events.meteor.KeyInputEvent;
@@ -15,23 +16,27 @@ import meteordevelopment.meteorclient.events.packets.PacketEvent;
 import meteordevelopment.meteorclient.events.world.ChunkOcclusionEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.pathing.PathManagers;
-import meteordevelopment.meteorclient.settings.BoolSetting;
-import meteordevelopment.meteorclient.settings.DoubleSetting;
-import meteordevelopment.meteorclient.settings.Setting;
-import meteordevelopment.meteorclient.settings.SettingGroup;
+import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Categories;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import meteordevelopment.meteorclient.systems.modules.movement.GUIMove;
 import meteordevelopment.meteorclient.utils.Utils;
+import meteordevelopment.meteorclient.utils.misc.Keybind;
+import meteordevelopment.meteorclient.utils.misc.NbtUtils;
 import meteordevelopment.meteorclient.utils.misc.input.Input;
 import meteordevelopment.meteorclient.utils.misc.input.KeyAction;
+import meteordevelopment.meteorclient.utils.player.ChatUtils;
 import meteordevelopment.meteorclient.utils.player.Rotations;
 import meteordevelopment.orbit.EventHandler;
 import meteordevelopment.orbit.EventPriority;
 import net.minecraft.client.Camera;
 import net.minecraft.client.CameraType;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.TagParser;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundPlayerCombatKillPacket;
 import net.minecraft.network.protocol.game.ClientboundRespawnPacket;
 import net.minecraft.network.protocol.game.ClientboundSetHealthPacket;
@@ -44,6 +49,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3d;
 import org.lwjgl.glfw.GLFW;
+
+import java.awt.*;
 
 public class Freecam extends Module {
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
@@ -120,6 +127,12 @@ public class Freecam extends Module {
         .name("static")
         .description("Disables settings that move the view.")
         .defaultValue(true)
+        .build()
+    );
+
+    private final Setting<Keybind> copyPos = sgGeneral.add(new KeybindSetting.Builder()
+        .name("copy-position")
+        .description("Copies the current position of the Freecam camera to the system clipboard.")
         .build()
     );
 
@@ -299,6 +312,14 @@ public class Freecam extends Module {
 
         prevPos.set(pos);
         pos.set(pos.x + velX, pos.y + velY, pos.z + velZ);
+
+        if (copyPos.get().isPressed()) {
+            String toClipboard = Long.toString(Math.round(pos.x)) + " " + Long.toString(Math.round(pos.y)) + " " + Long.toString(Math.round(pos.z));
+            Minecraft mc = Minecraft.getInstance();
+            mc.keyboardHandler.setClipboard(toClipboard);
+
+            ChatUtils.sendMsg(Component.translatable("key.glient.modules.frikam"));
+        }
     }
 
     @EventHandler(priority = EventPriority.HIGH)
