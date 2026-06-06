@@ -15,6 +15,7 @@ import meteordevelopment.meteorclient.mixininterface.IComponent;
 import meteordevelopment.meteorclient.utils.network.Http;
 import meteordevelopment.meteorclient.utils.network.MeteorExecutor;
 import meteordevelopment.meteorclient.utils.render.MeteorToast;
+import meteordevelopment.meteorclient.utils.render.color.Color;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
@@ -79,6 +80,23 @@ public class TitleScreenCredits {
                 }
             }
         });
+
+        Credit meteorAuthors = new Credit(new MeteorAddon() {
+            @Override
+            public void onInitialize() {
+
+            }
+
+            @Override
+            public String getPackage() {
+                return "";
+            }
+        });
+        meteorAuthors.text.append(Component.literal("Forked from ").withStyle(ChatFormatting.GRAY));
+        meteorAuthors.text.append(Component.literal("Meteor Client").withStyle(style -> style.withColor(Color.fromRGBA(145,61,226,255))));
+        meteorAuthors.text.append(Component.literal(" by ").withStyle(ChatFormatting.GRAY));
+        meteorAuthors.text.append(Component.literal("MineGame159, squidoodly, & seasnail").withStyle(ChatFormatting.WHITE));
+        credits.add(meteorAuthors);
     }
 
     private static void add(MeteorAddon addon) {
@@ -94,12 +112,13 @@ public class TitleScreenCredits {
 
             credit.text.append(Component.literal(addon.authors[i]).withStyle(ChatFormatting.WHITE));
         }
-
         credits.add(credit);
     }
 
     public static void render(GuiGraphicsExtractor graphics) {
-        if (credits.isEmpty()) init();
+        if (credits.isEmpty()) {
+            init();
+        }
 
         int y = 3;
         for (Credit credit : credits) {
