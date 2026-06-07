@@ -6,6 +6,7 @@
 package meteordevelopment.meteorclient.gui.themes.meteor.widgets;
 
 import meteordevelopment.meteorclient.gui.renderer.GuiRenderer;
+import meteordevelopment.meteorclient.gui.renderer.packer.GuiTexture;
 import meteordevelopment.meteorclient.gui.themes.meteor.MeteorWidget;
 import meteordevelopment.meteorclient.gui.widgets.WWidget;
 import meteordevelopment.meteorclient.gui.widgets.containers.WSection;
@@ -15,6 +16,8 @@ public class WMeteorSection extends WSection {
     public WMeteorSection(String title, boolean expanded, WWidget headerWidget) {
         super(title, expanded, headerWidget);
     }
+
+    public GuiTexture ttex;
 
     @Override
     protected WHeader createHeader() {
@@ -43,14 +46,14 @@ public class WMeteorSection extends WSection {
 
         @Override
         protected void onRender(GuiRenderer renderer, double mouseX, double mouseY, double delta) {
-            triangle.rotation = (1 - animProgress) * -90;
+            triangle.texture = (animProgress == 1) ? GuiRenderer.MINUS : GuiRenderer.PLUS;
+            ttex = triangle.texture;
         }
     }
 
-    protected static class WHeaderTriangle extends WTriangle implements MeteorWidget {
-        @Override
+    protected class WHeaderTriangle extends WTriangle implements MeteorWidget {
         protected void onRender(GuiRenderer renderer, double mouseX, double mouseY, double delta) {
-            renderer.rotatedQuad(x, y, width, height, rotation, GuiRenderer.TRIANGLE, theme().textColor.get());
+            renderer.rotatedQuad(x, y, width, height, rotation, ttex, theme().textColor.get());
         }
     }
 }

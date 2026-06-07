@@ -87,7 +87,7 @@ public abstract class WSection extends WVerticalList {
 
         double preProgress = animProgress;
 
-        animProgress += (expanded ? 1 : -1) * delta * 14;
+        animProgress += (expanded ? 1 : -1);
         animProgress = Mth.clamp(animProgress, 0, 1);
 
         if (animProgress != preProgress) {

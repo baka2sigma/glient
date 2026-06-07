@@ -42,6 +42,7 @@ public class GuiRenderer {
     public static GuiTexture RESET;
     public static GuiTexture FAVORITE_NO, FAVORITE_YES;
     public static GuiTexture COPY, PASTE;
+    public static GuiTexture PLUS, MINUS;
 
     public static GuiTexture MINIMIZE, MAXIMIZE, CLOSE; // glient addon 67 sigma feature
 
@@ -83,6 +84,9 @@ public class GuiRenderer {
         MINIMIZE = addTexture(MeteorClient.identifier("textures/icons/gui/minimize.png"));
         MAXIMIZE = addTexture(MeteorClient.identifier("textures/icons/gui/maximize.png"));
         CLOSE = addTexture(MeteorClient.identifier("textures/icons/gui/close.png"));
+
+        PLUS = addTexture(MeteorClient.identifier("textures/icons/gui/plus.png"));
+        MINUS = addTexture(MeteorClient.identifier("textures/icons/gui/minus.png"));
 
         TEXTURE = TEXTURE_PACKER.pack();
     }
